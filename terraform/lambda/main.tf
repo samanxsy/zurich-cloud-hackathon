@@ -23,7 +23,8 @@ EOF
 
 # Policy attachments
 resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_attachment" {
-    role = aws_iam_role.cloud_hackathon_lambda_role.name
+    name = "cloud-hackathon-iam-policy"
+    roles = [aws_iam_role.cloud_hackathon_lambda_role.id]
     policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
 
@@ -45,7 +46,7 @@ resource "aws_lambda_function" "cloud_hackathon_lambda" {
 
     environment {
       variables = {
-        DYNAMODB_TABLE = aws_dynamodb_table.cloud_hackathon_table.name
+        DYNAMODB_TABLE = var.aws_dynamodb_table
       }
     }
 }

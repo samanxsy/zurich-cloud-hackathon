@@ -17,15 +17,16 @@ provider "aws" {
 }
 
 
-# Modules
 module "dynamoDB" {
     source = "./dynamoDB"
 }
 
 module "lambda" {
-    source = "./lambda" 
+    source = "./lambda"
+    aws_dynamodb_table = module.dynamoDB.aws_dynamodb_table
 }
 
 module "s3bucket" {
     source = "./s3bucket"
+    lambda_function_arn = module.lambda.lambda_function_arn
 }

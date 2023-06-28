@@ -1,3 +1,3 @@
-variable "DYNAMODB_TABLE" {
+variable "aws_dynamodb_table" {
     type = string
 }
