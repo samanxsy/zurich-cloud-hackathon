@@ -37,8 +37,8 @@ resource "aws_lambda_function" "cloud_hackathon_lambda" {
     timeout = 15
     memory_size = 128
 
-    # Lambda code path
-    filename = "path/lambda_function.zip"
+    # Lambda zipped code path
+    filename = "lambda/lambda_function.zip"
 
     tracing_config {
       mode = "Active"

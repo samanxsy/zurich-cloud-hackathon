@@ -43,10 +43,10 @@ resource "aws_s3_bucket_versioning" "cloud_hackathon_bucket_versioning" {
 resource "aws_s3_bucket_notification" "cloud_hackathon_bucket_notification" {
     bucket = aws_s3_bucket.cloud_hackathon_bucket.id
 
-    # Trigger config
+    # Lambda Trigger config
     lambda_function {
         lambda_function_arn = var.lambda_function_arn
         events              = ["s3:ObjectCreated:Put"]
-        filter_prefix       = "uploads/"
+        filter_prefix       = "clientData/"
     }
 }

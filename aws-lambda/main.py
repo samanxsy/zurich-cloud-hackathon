@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+
+# Lambda function for NUWE Zurich Cloud Hackathon
+# Author: Saman Saybani
+
 import json
 import boto3
 
