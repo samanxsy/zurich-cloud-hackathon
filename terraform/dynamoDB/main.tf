@@ -12,7 +12,7 @@ resource "aws_kms_key" "cloud_hackathon_key" {
 resource "aws_dynamodb_table" "cloud_hackathon_table" {
     name = "cloud-hackathon-table"
     billing_mode = "PAY_PER_REQUEST"
-    deletion_protection_enabled = true
+    deletion_protection_enabled = false # Set to true for prod
     hash_key = "id"
 
 

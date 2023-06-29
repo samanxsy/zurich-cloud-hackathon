@@ -2,7 +2,7 @@
 ################### S 3 B u c k e t ####################
 
 resource "aws_s3_bucket" "cloud_hackathon_bucket" {
-    bucket = "cloud-hackathon-bucket"
+    bucket = "cloud-hackathon-bucketx4"
 
     tags = {
         Name = "cloud-hackathon-bucket"
@@ -26,8 +26,8 @@ resource "aws_s3_bucket_acl" "cloud_hackathon_bucket_acl" {
 
 resource "aws_s3_bucket_logging" "cloud_hackathon_bucket_logging" {
     bucket = aws_s3_bucket.cloud_hackathon_bucket.id
-    target_bucket = "statebucketx"
-    target_prefix = "cloud-hackathon/"
+    target_bucket = "cloud-hackathon-bucketx4"
+    target_prefix = "hackathonLogs/"
 }
 
 # Versioning & MFA Delete
@@ -47,6 +47,6 @@ resource "aws_s3_bucket_notification" "cloud_hackathon_bucket_notification" {
     lambda_function {
         lambda_function_arn = var.lambda_function_arn
         events              = ["s3:ObjectCreated:Put"]
-        filter_prefix       = "clientData/"
+        filter_suffix       = ".json"
     }
 }

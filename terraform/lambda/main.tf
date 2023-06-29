@@ -50,3 +50,11 @@ resource "aws_lambda_function" "cloud_hackathon_lambda" {
       }
     }
 }
+
+resource "aws_lambda_permission" "invoke_permission" {
+    statement_id  = "AllowS3ToInvokeLambda"
+    action        = "lambda:InvokeFunction"
+    function_name = aws_lambda_function.cloud_hackathon_lambda.function_name
+    principal     = "s3.amazonaws.com"
+    source_arn    = var.aws_s3_bucket_arn
+}
