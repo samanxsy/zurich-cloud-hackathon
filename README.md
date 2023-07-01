@@ -28,7 +28,7 @@ The Terraform modules created by this configurations are:
 - **SNS**: This module creates the SNS topic for sending notifications to a list of subscriptions (Sales department) responsible for the data management, to notify them about the status of the upload.
 
 ## Deployment
-The solution can be deployed to real AWS infrastructure, if an AWS account with necessary permission is configured.
+The solution is ready to be deployed to an AWS infrastructure; if an AWS account with the necessary permissions is available. The solution has been successfully tested and meets the objetives outlined for this project.
 
 ## If I was earlier
 Unfortunately, I was notified about the Hackathon a little bit late, and could start working on it just a few days ago. However, If I had more time, I would've:  
