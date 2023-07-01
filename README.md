@@ -1,2 +1,38 @@
-# zurich-cloud-hackathon
+# Cloud Hackathon Projeect
 NUWE Zurich cloud hackathon
+
+This project is created as part of the NUWE Zurich Cloud Hackathon with the objective of automating the sales department process of adding new customers data into the cloud database.
+
+
+## Infrastructure Overview
+
+The project consists of the following AWS resources:
+- **Lambda Function**: The Lambda function, written in Python, is automatically triggered upon JSON file uploads to the S3bucket via S3 notification. Then, it will process the data received from the event, and will insert it into DynamoDB table.  
+
+- **S3 Bucket**: The S3 bucket servers as a storage location for the JSON files containing **client data**. It is responsible for triggering the lambda function upon each upload.
+
+- **DynamoDB Table**: The DynamoDB table stores the client data proccessed by the Lambda function.
+
+- **SNS Topic**: I added the SNS as an extra step, to give insights about the success or failure of Data insertion process.
+
+## Terraform Configurations
+The infrastructure is provisioned using Terraform, and all of the configuration files are orginized within the `terraform/` directory. Allowing a highly customizable and scalable Infrastructure as Code.  
+The Terraform modules created by this configurations are:
+
+- **lambda**: This module creates the lambda function and its associated IAM role. It also configures the necessary permuissions for interaction with other AWS services, and the path for taking the Function Code in a zip file.
+
+- **S3bucket**: This module creates the S3 bucket and defines the event trigger for the Lambda function, whenever a **.json** file is uploaded. This module also creates the necessary resources to manage permission, logging, versioning, and ACL.
+
+- **dynamoDB**: This module provisions the DynamoDB table for storing the JSON data. It defines the schema, the key, and serverside encryption if needed.
+
+- **SNS**: This module creates the SNS topic for sending notifications to a list of subscriptions (Sales department) responsible for the data management, to notify them about the status of the upload.
+
+## Deployment
+The solution can be deployed to real AWS infrastructure, if an AWS account with necessary permission is configured.
+
+## Conclusion
+Thank you so much for this interesting challange and opportunity. I truly enjoyed the process and can not wait for the next phases! Thanks for reading me.  
+
+
+## Author
+Saman Saybani

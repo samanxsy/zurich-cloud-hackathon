@@ -87,13 +87,6 @@ def lambda_handler(event, context):
             "body": "some client data is missing"
         }
 
-    except:
-        send_notification("Error: Client data upload Faild. Please check the S3 bucket and Lambda configurations")
-        return {
-            "statusCode": 400,
-            "body": "some client data is missing"
-        }
-
 
 def send_notification(message):
     ''' Send notification using Amazon SNS '''

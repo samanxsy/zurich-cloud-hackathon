@@ -1,12 +1,13 @@
 ########################################################
 ################### D y n a m o D B ####################
 
-# Customer Managed Key
-#resource "aws_kms_key" "cloud_hackathon_key" {
-#    description = "Customer Managed Key"
-#    deletion_window_in_days = 30
-#    enable_key_rotation = true
-#}
+# Customer Managed Key should be created as a best practice, but commented out for simplification
+
+# resource "aws_kms_key" "cloud_hackathon_key" {
+#     description = "Customer Managed Key"
+#     deletion_window_in_days = 30
+#     enable_key_rotation = true
+# }
 
 # DynamoDB Table
 resource "aws_dynamodb_table" "cloud_hackathon_table" {
@@ -20,10 +21,10 @@ resource "aws_dynamodb_table" "cloud_hackathon_table" {
       enabled = true
     }
 
-    #server_side_encryption {
-    #  enabled = true
-    #  kms_key_arn = aws_kms_key.cloud_hackathon_key.arn
-    #}
+    # server_side_encryption {
+    #   enabled = true
+    #   kms_key_arn = aws_kms_key.cloud_hackathon_key.arn
+    # }
 
     attribute {
         name = "id"

@@ -35,8 +35,8 @@ resource "aws_s3_bucket_versioning" "cloud_hackathon_bucket_versioning" {
     bucket = aws_s3_bucket.cloud_hackathon_bucket.id
 
     versioning_configuration {
-      status = "Disabled"
-      mfa_delete = "Disabled"
+      status = "Disabled"  #  Enable for production environment
+      mfa_delete = "Disabled"  #  Enable for production environment
     }
 }
 
