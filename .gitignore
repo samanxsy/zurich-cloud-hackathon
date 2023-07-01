@@ -3,11 +3,3 @@
 *.tfstate.*
 *.json
 *.terraform*
-*__pycache__/
-*.pytest_cache/
-*.coverage
-
-
-# Temporary
-tests/
-setup.cfg

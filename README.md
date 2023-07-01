@@ -30,6 +30,20 @@ The Terraform modules created by this configurations are:
 ## Deployment
 The solution can be deployed to real AWS infrastructure, if an AWS account with necessary permission is configured.
 
+## If I was earlier
+Unfortunately, I was notified about the Hackathon a little bit late, and could start working on it just a few days ago. However, If I had more time, I would've:  
+
+1. Write comprehensive unittests for the lambda function Having mock tests would definetly make me feel better.  
+
+2. Configure a CI/CD pipeline using GitHub Actions to run automated test cases, infrastructure vulnerability checks, and eventually automated Deployment  
+
+3. Implement more grangular access and permissions, and define precise access control policies with specific least privilege principles.
+
+4. Implement proper logging and monitoring to utilize Amazon CloudWatch efficiently.
+
+5. Definetly add more error handlings.
+
+
 ## Conclusion
 Thank you so much for this interesting challange and opportunity. I truly enjoyed the process and can not wait for the next phases! Thanks for reading me.  
 
