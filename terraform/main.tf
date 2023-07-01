@@ -25,9 +25,14 @@ module "lambda" {
     source = "./lambda"
     aws_dynamodb_table = module.dynamoDB.aws_dynamodb_table
     aws_s3_bucket_arn = module.s3bucket.aws_s3_bucket_arn
+    aws_sns_topic_arn = module.sns.aws_sns_topic_arn
 }
 
 module "s3bucket" {
     source = "./s3bucket"
     lambda_function_arn = module.lambda.lambda_function_arn
+}
+
+module "sns" {
+    source = "./sns"
 }

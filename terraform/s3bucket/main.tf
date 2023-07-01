@@ -49,4 +49,6 @@ resource "aws_s3_bucket_notification" "cloud_hackathon_bucket_notification" {
         events              = ["s3:ObjectCreated:Put"]
         filter_suffix       = ".json"
     }
+
+  depends_on = [ var.lambda_function_arn ]
 }

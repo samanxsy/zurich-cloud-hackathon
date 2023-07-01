@@ -22,16 +22,22 @@ EOF
 }
 
 # Policy attachments
-resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_attachment" {
+resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_S3" {
     name = "cloud-hackathon-iam-policy"
     roles = [aws_iam_role.cloud_hackathon_lambda_role.id]
     policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
-resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_attachment2" {
+resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_DynamoDB" {
     name = "cloud-hackathon-iam-policy"
     roles = [aws_iam_role.cloud_hackathon_lambda_role.id]
     policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+}
+
+resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_SNS" {
+    name = "cloud-hackathon-iam-policy"
+    roles = [aws_iam_role.cloud_hackathon_lambda_role.id]
+    policy_arn = "arn:aws:iam::aws:policy/AmazonSNSFullAccess"
 }
 
 # Lambda Function
@@ -53,6 +59,7 @@ resource "aws_lambda_function" "cloud_hackathon_lambda" {
     environment {
       variables = {
         DYNAMODB_TABLE = var.aws_dynamodb_table
+        SNS_TOPIC_ARN = var.aws_sns_topic_arn
       }
     }
 }
