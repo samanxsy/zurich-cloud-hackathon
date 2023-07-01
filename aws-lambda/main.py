@@ -3,23 +3,14 @@
 # Lambda function for NUWE Zurich Cloud Hackathon
 # Author: Saman Saybani
 
-import json
+import os
 import boto3
 
 def lambda_handler(event, context):
     ''' Lambda Function to automate data insert into DynamoDB '''
 
-    bucket = event["Records"][0]["s3"]["bucket"]["name"]
-    key = event["Records"][0]["s3"]["object"]["key"]
-
-    s3 = boto3.client('s3')
-    response = s3.get_object(Bucket=bucket, Key=key)
-    body = response["Body"].read().decode('utf-8')
-
-    client_data = json.loads(body)
-
-    # Extracting Client Data
-    for info in client_data:    
+    # Extracting Client Data from JSON
+    for info in event:    
         client_id = info["id"]
         client_name = info["name"]
         client_surname = info["surname"]
@@ -61,7 +52,7 @@ def lambda_handler(event, context):
 
         # dynamoDB
         dynamodb = boto3.resource("dynamodb")
-        table = dynamodb.Table("cloud-hackathon-table")
+        table = dynamodb.Table(os.environ["DYNAMODB_TABLE"])
         # Inserting into dynamoDB
         table.put_item(Item=item)
 

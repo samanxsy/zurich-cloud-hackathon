@@ -25,6 +25,12 @@ EOF
 resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_attachment" {
     name = "cloud-hackathon-iam-policy"
     roles = [aws_iam_role.cloud_hackathon_lambda_role.id]
+    policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
+
+resource "aws_iam_policy_attachment" "cloud_hackathon_lambda_role_attachment2" {
+    name = "cloud-hackathon-iam-policy"
+    roles = [aws_iam_role.cloud_hackathon_lambda_role.id]
     policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
 
