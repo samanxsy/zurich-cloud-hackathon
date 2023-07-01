@@ -16,8 +16,9 @@ The project consists of the following AWS resources:
 - **SNS Topic**: I added the SNS as an extra step, to give insights about the success or failure of the Data insertion process.
 
 ## Terraform Configurations
-The infrastructure is provisioned using Terraform, and all of the configuration files are organized within the `terraform/` directory. Allowing a highly customizable and scalable Infrastructure as Code.  
-The Terraform modules created by these configurations are:
+The infrastructure is provisioned using Terraform, and all of the configuration files are organized within the `terraform/` directory. Allowing a highly customizable and scalable Infrastructure as Code. The Terraform backend configuration is set to utilize a remote state in a dedicated S3 bucket.  
+
+The Terraform modules created by these configurations are:  
 
 - **lambda**: This module creates the lambda function and its associated IAM role. It also configures the necessary permissions for interaction with other AWS services and the path for taking the Function Code in a zip file.
 
