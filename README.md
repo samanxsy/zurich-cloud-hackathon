@@ -24,19 +24,19 @@ The infrastructure is provisioned using Terraform, and all of the configuration 
 
 The Terraform modules created by these configurations are:  
 
-- **lambda**: This module creates the lambda function and its associated IAM role. It also configures the necessary permissions for interaction with other AWS services and the path for taking the Function Code in a zip file.
+- **lambda**: This module creates the lambda function and its associated IAM role. It also configures the necessary permissions for interaction with other AWS services and the path for taking the Function Code in a zip file
 
-- **S3bucket**: This module creates the S3 bucket and defines the event trigger for the Lambda function, whenever a **.json** file is uploaded. This module also creates the necessary resources to manage permission, logging, versioning, and ACL.
+- **S3bucket**: This module creates the S3 bucket and defines the event trigger for the Lambda function, whenever a **.json** file is uploaded. This module also creates the necessary resources to manage permission, logging, versioning, and ACL
 
-- **dynamoDB**: This module provisions the DynamoDB table for storing the JSON data. It defines the schema, the key, and serverside encryption if needed.
+- **dynamoDB**: This module provisions the DynamoDB table for storing the JSON data. It defines the schema, the key, and serverside encryption if needed
 
-- **SNS**: This module creates the SNS topic for sending notifications to a list of subscriptions (Sales department) responsible for data management, to notify them about the status of the upload.
+- **SNS**: This module creates the SNS topic for sending notifications to a list of subscriptions (Sales department) responsible for data management, to notify them about the status of the upload
 
 ## Deployment
-The solution is ready to be deployed to an AWS infrastructure; if an AWS account with the necessary permissions is available. The solution has been successfully tested and meets the objectives outlined for this project.
+The solution is ready to be deployed to an AWS infrastructure; if an AWS account with the necessary permissions is available. The solution has been successfully tested and meets the objectives outlined for this project
 
 ## Conclusion
-Thank you so much for this interesting challenge and opportunity. I truly enjoyed the process and can not wait for the next phases! Thanks for reading me.  
+Thank you so much for this interesting challenge and opportunity. I truly enjoyed the process and can not wait for the next phases! Thanks for reading me  
 
 
 ## Author
