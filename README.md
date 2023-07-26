@@ -1,4 +1,4 @@
-# Zurich Cloud Hackathon -- FINALIST PROJECT - JULY 2023
+# Zurich Cloud Hackathon - FINALIST PROJECT - JUNE 2023
 **Zurich cloud hackathon, Powered by NUWE**  
 This project was created for the Zurich Cloud Hackathon pre-selection phase and made it to the on-site final in Barcelona.  
 
